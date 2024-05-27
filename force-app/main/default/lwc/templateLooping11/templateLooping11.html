@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Template Looping(foreach)demo11">
+        <div class="slds-m-around_medium">
+            <template for:each = {carList} for:item = "cc">
+                <div key={cc}>{cc}</div>
+            </template>
+        </div>
+    </lightning-card>
+    <!-- 2nd li-card: -->
+    <lightning-card title="Template Looping(foreach loop with array of objects) ">
+        <div class="slds-m-around_medium">
+            <ul class="slds-has-dividers_around-space">
+                <template for:each = {countryCapitalList} for:item = "cli">
+                    <li key={cli.id} class="slds-item">{cli.con}-{cli.cap}</li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+    <!-- 3rd li-card: -->
+    <lightning-card title="Iterator Looping demo11">
+        <div class="slds-m-around_medium">
+            <ul class="slds-has-dividers_around-space">
+                <template iterator:itm={countryCapitalList}>
+                    <li key={itm.value.id}>
+                        <template  if:true = {itm.first}>   <!-- see this dot first and dot last property -->
+                            <div class="slds-box slds-theme_shade">
+                                <strong>
+                                    List of countries and their capitals:
+                                </strong>
+                            </div>
+                        </template>
+                        <div class="slds-item">
+                            <strong>{itm.value.con}-</strong>
+                            {itm.value.cap}
+                        </div>
+                        <template  if:true = {itm.last}>
+                            <div>
+                                <strong>
+                                    Learn other country-capitals too.
+                                </strong>
+                            </div>
+                        </template>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,43 @@
+ <!-- this old way of if:true  if:false will get depricated soon , so instead use improved cr directives: -->
+<!-- lwc:if   lwc:elseif  lwc:else -->
+<template >
+    <!-- <lightning-card title="Conditinal Rendering demo10 using if:true and if:false">
+        <div class="slds-m-around_medium">
+            <lightning-button variant="brand" label="Show Data" title="Show data on button click" 
+            onclick={handleClick} class="slds-m-left_x-small"></lightning-button> 
+            <template if:true = {isVisible}>
+                <div> I am learning conditional rendering in Lwc. On click of button isVisible property becomes true.</div>
+            </template>
+             doing the same using getter: 
+            <lightning-input type="text" label="Type 'hello' to see the data." onkeyup={changeHandler} ></lightning-input>
+            <template if:true={wordCheck}>
+                <div> Good job, You typed correctly.</div>
+            </template>
+            <template if:false={wordCheck}>
+                <div> Oops, You typed incorrectly.</div> 
+            </template>
+        </div>
+    </lightning-card> -->
+    <lightning-card title="Conditinal Rendering demo10 using lwc:if and lwc:else">
+        <div class="slds-m-around_medium">
+            <lightning-button variant="brand" label="Show Data" title="Show data on button click" 
+            onclick={handleClick} class="slds-m-left_x-small"></lightning-button> 
+            <template lwc:if = {isVisible}>
+                <div> I am learning conditional rendering in Lwc. On click of button isVisible property becomes true.</div>
+            </template>
+        </div>
+        <div class="slds-m-around_medium">
+            <!-- doing the same using getter: -->
+            <lightning-input type="text" label="Guess an asian country." onkeyup={changeHandler} ></lightning-input>
+            <template lwc:if={checkIndia}>
+                <div> Good job, You guessed correctly.</div> 
+            </template>
+            <template lwc:elseif={checkJapan}>
+                <div> Good job, You guessed correctly.</div> 
+            </template>
+            <template lwc:else>
+                <div> Oops, You guessed incorrectly.</div> 
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,35 @@
+    <template>
+        <lightning-card title="LWC Quiz">
+            <div class="slds-m-around_medium"><strong>Instruction: All questions are mandatory.</strong></div>
+            <div class="slds-m-around_medium">
+                <form>
+                    <template for:each={queBank} for:item="qu">
+                        <div key={qu.id} > <!-- class="slds-m-bottom_medium" -->
+                            <div><strong>{qu.id} - {qu.que}</strong></div>
+                            <div class="slds-grid slds-gutters slds-p-bottom_medium">
+                                <div class="slds-col">
+                                    <input type="radio" name={qu.id} value="a" onchange={changeHandler}/>
+                                    {qu.opts.a}
+                                </div>
+                                <div class="slds-col">
+                                    <input type="radio" name={qu.id} value="b" onchange={changeHandler}/>
+                                    {qu.opts.b}
+                                </div>
+                                <div class="slds-col">
+                                    <input type="radio" name={qu.id} value="c" onchange={changeHandler}/>
+                                    {qu.opts.c}
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <lightning-button variant="brand" type="submit" label="Submit" title="Submit Quiz" 
+                    class="slds-m-around_small" onclick={submitHandler} disabled={allNotSelected}></lightning-button>
+                    <lightning-button variant="brand" type="reset" label="Reset" title="Reset All" 
+                    class="slds-m-around_small" onclick={resetHandler}></lightning-button>
+            </form>
+            <template if:true={isSubmitted}>
+                <div class={isFullScore}>You have scored {correctAnswers} out of {queBank.length} questions.</div>
+            </template>
+            </div>
+        </lightning-card>    
+    </template>
