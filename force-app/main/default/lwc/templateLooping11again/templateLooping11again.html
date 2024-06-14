@@ -1,0 +1,26 @@
+<template>
+    // display array of objects using foreach
+    <lightning-card title="Template Looping(foreach)demo">
+        <table>
+            <tr>
+                <th>Col1</th>
+                <th>Col2</th>
+            </tr>
+            <template for:each = {countryCapitalList} for:item = "cc" for:index = "indx">
+                <tr key={cc.value.id}>
+                    <td>{indx}</td>
+                    <td>{coun}</td>
+                    <td>{cap}</td>
+                </tr>    
+            </template>
+        </table>
+    </lightning-card> 
+    // display array of objects using iterator
+    <lightning-card title="Template Looping(foreach)demo">
+        <template iterator:cc = {countryCapitalList}>
+            <div key={cc.value.id}>
+                    <p>{cc.first}----{indx}----{coun}----{cap}----{cc.last}</p>
+            </div>
+        </template>
+    </lightning-card>   
+</template>
