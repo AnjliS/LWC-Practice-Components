@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Parent card: Child to Parent using custom event." icon-name="standard:account">
+        <p class="slds-text-align_center"> Count: {countValue}</p>
+    </lightning-card>
+    <c-child-custom-event 
+    onsub={handleSub}
+    onadd={handleAdd}
+    ></c-child-custom-event>
+</template>
